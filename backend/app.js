@@ -38,4 +38,10 @@ app.post('/items', async (req, res) => {
   res.status(201).json({ message: 'Stored new item.', item: newItem });
 });
 
-app.listen(8080);
+if (require.main === module) {
+  app.listen(8080, () => {
+    console.log('Backend server running on http://localhost:8080');
+  });
+}
+
+module.exports = app;
